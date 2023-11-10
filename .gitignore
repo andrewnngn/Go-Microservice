@@ -117,4 +117,3 @@ TestingOnly/GraphqlClient
 TestingOnly/Grpc_Server_Testing
 ngrok1.yml
 ngrok2.yml
-README.md
