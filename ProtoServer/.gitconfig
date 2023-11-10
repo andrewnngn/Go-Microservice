@@ -1,0 +1,2 @@
+[alias]
+    forcemit = !git add . && git commit -m

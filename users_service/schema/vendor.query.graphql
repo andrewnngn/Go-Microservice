@@ -1,0 +1,25 @@
+extend type Query {
+    vendorById(id: ID!): VendorReturn
+}
+
+type VendorReturn implements CommonReturn{
+    id: ID!
+    name: String!
+    address: String!
+    contractsV: [ContractV!]
+    withdrawRequestsV: [WithdrawRequestV!]
+    isError: Boolean!
+    msgFromDev: String!
+    msgFromServer: String!
+}
+
+type ContractV {
+    id: ID!
+    startDate: Time!
+    endDate: Time!
+}
+
+type WithdrawRequestV {
+    id: ID!
+    collectionDate: Time!
+}

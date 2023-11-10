@@ -1,0 +1,50 @@
+type AuthReturn implements CommonReturn{
+    data: Auth!
+    isError: Boolean!
+    msgFromDev: String!
+    msgFromServer: String!
+}
+
+
+type GroupOfUser {
+    id: ID!
+    name: String!
+    address: String!
+    emailAddress: String!
+
+}
+type UserInfo {
+    firstName: String!
+    lastName: String!
+    username: String!
+    group: String! # group name
+    role: String
+    groupDetails: GroupOfUser!
+}
+
+type AuthUserDetailsReturn implements CommonReturn {
+    accessToken: String!
+    refreshToken: String!
+    user: UserInfo!
+    # --- #
+    isError: Boolean!
+    msgFromDev: String!
+    msgFromServer: String!
+}
+
+input LoginInput {
+    username: String!
+    password: String!
+}
+
+extend type Mutation {
+    # for user
+    getToken(input: LoginInput!): AuthUserDetailsReturn!
+    exchangeToken(refreshToken: String!): AuthUserDetailsReturn!
+    logout(refreshToken: String!): String!
+
+    # for admin
+    createAccount(input: CreateAuthInput!): AuthReturn!
+    updateAccount(id: ID!, input: UpdateAuthInput!): AuthReturn!
+    deleteAccount(accountID: ID!): AuthReturn!
+}

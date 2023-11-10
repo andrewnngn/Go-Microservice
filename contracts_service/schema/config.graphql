@@ -1,0 +1,9 @@
+scalar Map
+
+type Mutation
+
+interface CommonReturn {
+    isError: Boolean!
+    msgFromDev: String!
+    msgFromServer: String!
+}

@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package protoGRPCagw;
+option go_package = "github.com/techvify-oliver/protoserver/generated";
+
+
+message UserDetailsResponse {
+  int64 user_id = 1;
+  string first_name = 2;
+  string last_name = 3;
+  string group_name = 4; // "group" in query field
+  string role = 5;
+  string email = 6;
+  message GroupOfUser {
+    int64 group_id = 1;
+    string group_name = 2;
+    string group_address = 3;
+    string group_email = 4;
+  }
+  GroupOfUser group = 7;
+}
+
+message GetUserRequest {
+  int64 user_id = 1;
+}
+message GetUserResponse {
+  bool is_error = 1;
+  UserDetailsResponse user = 2;
+}

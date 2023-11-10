@@ -1,0 +1,33 @@
+extend type Query {
+    contractorById(id: ID!): ContractorC
+}
+
+type ContractorC implements CommonReturn{
+    id: ID!
+    name: String!
+    address: String!
+    withdrawRequests: [WithdrawRequestC!]
+    isError: Boolean!
+    msgFromDev: String!
+    msgFromServer: String!
+}
+
+type WithdrawRequestC {
+    id: ID!
+    contractC: ContractC!
+    vendorC: VendorC!
+}
+
+type ContractC {
+    id: ID!
+    startDate: Time!
+    endDate: Time!
+    remainingAmount: Int!
+    totalAmount: Int!
+}
+
+type VendorC {
+    id: ID!
+    name: String!
+    address: String!
+}

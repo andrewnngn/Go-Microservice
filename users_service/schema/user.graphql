@@ -1,0 +1,12 @@
+type UserReturn implements CommonReturn{
+    data: User!
+    isError: Boolean!
+    msgFromDev: String!
+    msgFromServer: String!
+}
+
+extend type Mutation {
+    createUser(input: CreateUserInput!): UserReturn!
+    updateUser(id: ID!, input: UpdateUserInput!): UserReturn!
+    deleteUser(id: ID!): UserReturn!
+}

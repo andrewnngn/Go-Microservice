@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package protoGRPCagw;
+option go_package = "github.com/techvify-oliver/protoserver/generated";
+
+
+import "google/protobuf/timestamp.proto";
+
+
+
+// Get contract details
+message GetContractRequest {
+  int64 contract_id = 1;
+}
+message GetContractResponse {
+  int64 vendor_id = 1;
+  string status = 2;
+  google.protobuf.Timestamp start_date = 3;
+  google.protobuf.Timestamp end_date = 4;
+  int32 total_amount = 5;
+  int32 remaining_amount = 6;
+}
+
+message GetContractByGroupIDRequest {
+  int64 group_id = 1;
+}
+message GetContractByGroupID {
+  int64 id = 1;
+  int64 vendor_id = 2;
+  string status = 3;
+  google.protobuf.Timestamp start_date = 4;
+  google.protobuf.Timestamp end_date = 5;
+  int32 total_amount = 6;
+  int32 remaining_amount = 7;
+}
+message GetContractByGroupIDResponse {
+  repeated GetContractByGroupID contracts = 1;
+}
+
+message RemoveAmountAfterCollectedRequest {
+  int64 contract_id = 1;
+  int32 amount = 2;
+}
+
+message RemoveAmountAfterCollectedResponse {
+  bool isSuccess = 1;
+}

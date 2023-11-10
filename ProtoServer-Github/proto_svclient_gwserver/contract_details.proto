@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package protoGRPC;
+option go_package = "github.com/techvify-oliver/protoserver/svclient-gwserver";
+
+import "google/protobuf/timestamp.proto";
+
+
+
+// Get contract details
+message GetContractRequest {
+  int64 contract_id = 1;
+}
+message GetContractResponse {
+  int64 vendor_id = 1;
+  string status = 2;
+  google.protobuf.Timestamp start_date = 3;
+  google.protobuf.Timestamp end_date = 4;
+  int32 total_amount = 5;
+  int32 remaining_amount = 6;
+}

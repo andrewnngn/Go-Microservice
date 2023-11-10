@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package protoGRPCagw;
+option go_package = "github.com/techvify-oliver/protoserver/generated";
+
+
+import "google/protobuf/timestamp.proto";
+
+
+
+// Get request details
+message GetWithdrawsRequest {
+  int64 request_id = 1;
+}
+message GetWithdrawsResponse {
+  int64 contract_id = 1;
+  int64 vendor_id = 2;
+  int64 contractor_id = 3;
+  int32 amount = 4;
+  string status = 5;
+  google.protobuf.Timestamp collection_date = 6;
+}
+
+message GetRequestByGroupIDRequest {
+  int64 group_id = 1;
+}
+message GetRequestByGroupID {
+  int64 id = 1;
+  int64 contract_id = 2;
+  int64 vendor_id = 3;
+  int64 contractor_id = 4;
+  int32 amount = 5;
+  string status = 6;
+  google.protobuf.Timestamp collection_date = 7;
+}
+message GetRequestByGroupIDResponse {
+  repeated GetRequestByGroupID withdraw_requests = 1;
+}

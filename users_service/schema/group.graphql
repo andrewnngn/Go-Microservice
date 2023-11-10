@@ -1,0 +1,12 @@
+type GroupReturn implements CommonReturn{
+    data: Group!
+    isError: Boolean!
+    msgFromDev: String!
+    msgFromServer: String!
+}
+
+extend type Mutation {
+    createGroup(input: CreateGroupInput!): GroupReturn!
+    updateGroup(id: ID!, input: UpdateGroupInput!): GroupReturn!
+    deleteGroup(id: ID!): GroupReturn!
+}

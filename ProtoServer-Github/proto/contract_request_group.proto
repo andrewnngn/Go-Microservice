@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package protoGRPCagw;
+option go_package = "github.com/techvify-oliver/protoserver/generated";
+
+
+// Other proto
+import "contract_details.proto";
+import "group_details.proto";
+import "user_details.proto";
+import "request_details.proto";
+
+
+service Service {
+  // Auth
+  rpc GetUser(GetUserRequest) returns (GetUserResponse);
+  // Main
+  rpc GetGroupDetails(GetGroupDetailsRequest) returns (GetGroupDetailsResponse);
+
+  rpc GetRequestDetails(GetWithdrawsRequest) returns (GetWithdrawsResponse);
+  rpc GetRequestsByVendorID(GetRequestByGroupIDRequest) returns (GetRequestByGroupIDResponse);
+  rpc GetRequestsByContractorID(GetRequestByGroupIDRequest) returns (GetRequestByGroupIDResponse);
+
+  rpc GetContractDetails(GetContractRequest) returns (GetContractResponse);
+  rpc GetContractsByVendorID(GetContractByGroupIDRequest) returns (GetContractByGroupIDResponse);
+
+  rpc RemoveAmountFromContractAfterCollected(RemoveAmountAfterCollectedRequest) returns (RemoveAmountAfterCollectedResponse);
+}

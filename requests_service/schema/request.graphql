@@ -1,0 +1,46 @@
+type RequestReturn implements CommonReturn{
+    data: Request!
+    isError: Boolean!
+    msgFromDev: String!
+    msgFromServer: String!
+}
+
+extend type Mutation {
+    createRequest(input: CreateRequestInput!): RequestReturn!
+    updateRequest(id: ID!, input: UpdateRequestInput!): RequestReturn!
+    deleteRequest(id: ID!): RequestReturn!
+}
+
+type Group {
+    id: ID!
+    name: String
+    address: String
+}
+type Contract {
+    id: ID!
+    vendor: Group
+    contractStatus: String
+    startDate: Time!
+    endDate: Time!
+    remainingAmount: Int!
+    totalAmount: Int!
+}
+type WithdrawRequest {
+    id: ID!
+    contract: Contract
+    vendor: Group
+    projectContractor: Group
+    withdrawRequestStatus: String!
+    amount: Int
+    collectionDate: Time
+}
+type WithdrawRequestReturn implements CommonReturn {
+    data: [WithdrawRequest]!
+    isError: Boolean!
+    msgFromDev: String!
+    msgFromServer: String!
+}
+
+extend type Query {
+    QueryAllRequests: WithdrawRequestReturn!
+}

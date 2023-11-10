@@ -1,0 +1,5 @@
+Client of services implement "svclient-gwserver"
+Server of services implement "generated_agw"
+
+Client of API Gateway implement "generated_agw"
+Server of API Gateway implement "svclient-gwserver"

@@ -1,0 +1,42 @@
+{{define "subject"}} {{.subject}} {{end}}
+
+{{define "plainBody"}}
+Hi {{.to}},
+
+{{.message}}
+
+Best regards,
+{{.from}}
+
+{{end}}
+
+{{define "htmlBody"}}
+<!doctype html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style>
+    .messageNoty{
+        font-size: 30px;
+        font-weight: bold;
+        color: rebeccapurple;
+    }
+    .message{
+        font-size: 20px;
+    }
+</style>
+</head>
+
+<body>
+    <p class="message">Hi {{.to}},</p>
+    <p class="message">{{.message}}</p>
+    </br>
+    <p class="messageNoty">Please note that this email was sent automatically; do not reply.</p>
+    <i class="message">Best regards,</i>
+    <p class="message">{{.from}}</p>
+</body>
+
+</html>
+{{end}}

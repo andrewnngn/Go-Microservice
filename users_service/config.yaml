@@ -1,0 +1,12 @@
+postgres:
+  connectionString: $POSTGRES_CONNECTION_STRING
+
+port:
+  graphqlPort: $GRAPHQL_PORT_STRING
+  grpcClientPort: $GRPC_PORT_CLIENT
+  grpcServerPort: $GRPC_PORT_SERVER
+
+trivial:
+  appName: $TRIVIAL_APP_NAME
+  serverHeader: $TRIVIAL_SERVER_HEADER
+  playgroundName: $TRIVIAL_PLAYGROUND_NAME

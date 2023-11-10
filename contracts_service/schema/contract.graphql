@@ -1,0 +1,36 @@
+type ContractReturn implements CommonReturn{
+    data: Contract!
+    isError: Boolean!
+    msgFromDev: String!
+    msgFromServer: String!
+}
+
+extend type Mutation {
+    createContract(input: CreateContractInput!): ContractReturn!
+    updateContract(id: ID!, input: UpdateContractInput!): ContractReturn!
+    deleteContract(id: ID!): ContractReturn!
+}
+
+type ContractVendorReturn implements CommonReturn{
+    data: [ContractVendor]!
+    isError: Boolean!
+    msgFromDev: String!
+    msgFromServer: String!
+}
+type Vendor {
+    id: ID!
+    name: String!
+}
+type ContractVendor {
+    id: ID!
+    vendor: Vendor!
+    contractStatus: String!
+    startDate: Time!
+    endDate: Time!
+    remainingAmount: Int!
+    totalAmount: Int!
+}
+
+extend type Query {
+    QueryAllContracts: ContractVendorReturn!
+}

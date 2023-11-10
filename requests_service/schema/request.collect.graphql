@@ -1,0 +1,12 @@
+extend type Mutation {
+    readyToCollect(id: ID!): WithdrawCollectReturn
+    arrangeCollectionDate(id: ID!, collectionDate: Time!): String!
+    collected(id: ID!): WithdrawCollectReturn
+}
+
+type WithdrawCollectReturn implements CommonReturn {
+    data: WithdrawRequest!
+    isError: Boolean!
+    msgFromDev: String!
+    msgFromServer: String!
+}
